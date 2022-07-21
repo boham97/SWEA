@@ -1,0 +1,5 @@
+num=input()
+num1=list(input().split(' '))
+num2=list(map(int, num1))
+num2.sort()
+print(num2[divmod(int(num),2)[0]])
