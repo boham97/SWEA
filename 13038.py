@@ -18,7 +18,6 @@ for z in range(test):
             if temp== remain:
                 if j<minday:
                     minday=j
-                break
     print('#',end='')
     print(z+1,end=' ')
     print(day+minday+1)
