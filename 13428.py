@@ -24,4 +24,4 @@ for test in range(test_case):
             arr[change[0]], arr[change[1]] = arr[change[1]], arr[change[0]]
     print('#',end='')
     print(test+1,end=' ')
-    print(maxinum, mininum)
+    print(mininum, maxinum)
