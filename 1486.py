@@ -1,22 +1,18 @@
-from itertools import combinations
-test_num =int(input())
+def bfs(n,h):
+    global ans
+    if h > B or n == N:
+        if B <= h < ans:
+            ans = h
+        return
+    else:
+        bfs(n+1, h)
+        bfs(n+1,h+arr[n])
 
-for test in range(test_num):
-    num, length = list(map(int, input().split()))
+
+tc = int(input())
+for test in range(tc):
+    N, B = map(int,input().split())
     arr = list(map(int, input().split()))
-    arr.sort()
-    
-    max = sum(arr)
-    min = max
-    
-    for i in range(0,num,1):
-        if sum(arr[i::]) < length:
-            break
-        arr_combinations = list(combinations(arr,num - i))
-        for j in arr_combinations:
-            if sum(j)<min and sum(j) >= length:
-                min =sum(j)
-                best = j
-    print('#',end= '')
-    print(test +1, end=' ')
-    print(min - length)
+    ans = 10000 * N
+    bfs(0, 0)
+    print(f'#{test+1} {ans}')
