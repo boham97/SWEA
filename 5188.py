@@ -43,5 +43,5 @@ for test in range(tc):
     arr = [list(map(int,input().split())) for _ in range(N)]
     ans = 2* N * 10
     dfs(0,0,arr[0][0])
-    print(f'#{test+1} {ans}')
+    print(f'#{test+1} {ans}')sdsdds
  """
