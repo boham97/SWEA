@@ -10,7 +10,7 @@ def best():
 
 
 def dfs(cnt):
-    if cnt>0 and best_num[:min(cnt-1,N)] != arr[:min(cnt-1,N)]:
+    if cnt>0 and best_num[:min(cnt-1,N-2)] != arr[:min(cnt-1,N-2)]:
         return
     global ans
     if cnt == change:
@@ -33,8 +33,6 @@ for test in range(tc):
     change = int(change)
     ans = -1
     best_num = best()
-    cnt = [0] * 10
-    many = 0
-    last = [0,0]
+
     dfs(0)
     print(f'#{test+1} {ans}')
