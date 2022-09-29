@@ -13,10 +13,24 @@ def f(i, N):
             else:
                 f(i+1,N)
             mat[i], mat[j] = mat[j], mat[i]
+
+
 tc = int(input())
 for test in range(tc):
     N = int(input())
     ans = 0
     mat = list(range(N))
-    f(0,len(mat))
+    for i in range(N//2):
+        mat[0], mat[i] = mat[i], mat[0]
+        f(1,N)
+        mat[0], mat[i] = mat[i], mat[0]
+    ans = ans *2
+    if N % 2 == 1:
+        mat[0], mat[N//2] = mat[N//2], mat[0]
+        f(1,N)
+        mat[0], mat[N//2] = mat[N//2], mat[0]
     print(f'#{test+1} {ans}')
+
+
+
+    
