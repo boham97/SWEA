@@ -1,18 +1,15 @@
-from pprint import pprint
-
-
 def dfs(x, y, dct, n):
     global cnt
-    if visited[dct][x][y] <= n or cnt <= n or visited[4][x][y] == 1:
+    if visited[4][x][y] == 1 or cnt <= n + (2*N-x-y-2) or visited[dct][x][y] <= n:
         return
     if x == N and y == N + 1:
         if cnt > n:
             cnt = n
-            for x,y,dc,n in stack:
+            for x,y,dc,n in temp:
                 visited[dc][x][y] = n
         return
     visited[4][x][y] = 1
-    stack.append([x,y,dct,n])
+    temp.append([x,y,dct,n])
     if arr[x][y] == 0:
         visited[3][x][y] = 1
         visited[2][x][y] = 1
@@ -41,7 +38,7 @@ def dfs(x, y, dct, n):
             dfs(x, y + 1, 0, n + 1)
             dfs(x, y - 1, 2, n + 1)
     visited[4][x][y] = 0
-    stack.pop()
+    temp.pop()
     
     
 tc = int(input())
@@ -58,7 +55,7 @@ for test in range(tc):
         arr[i].insert(0, 0)
     arr[1][0] = 1
     arr[N][N + 1] = 1
-    stack =[]
+    temp =[]
     dfs(1, 0, 0, 0)
     print(f'#{test + 1} {cnt-1}')
 
